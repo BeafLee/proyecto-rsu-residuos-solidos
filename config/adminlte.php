@@ -329,6 +329,11 @@ return [
             'route' => 'admin.vehicles.index',
         ],
         [
+            'text' => 'Mantenimientos',
+            'icon' => 'fas fa-tools',
+            'route' => 'admin.maintenances.index',
+        ],
+        [
             'text' => 'Configuración de Vehículos',
             'icon' => 'fas fa-cogs',
             'submenu' => [
