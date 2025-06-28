@@ -43,15 +43,22 @@ Route::resource('employee_functions', \App\Http\Controllers\EmployeeFunctionCont
 Route::resource('holidays', \App\Http\Controllers\HolydaysController::class)->names('admin.holidays');
 
 Route::resource('maintenances', \App\Http\Controllers\MaintenanceController::class)->names('admin.maintenances');
-Route::get('maintenance-shedules/{maintenanceId}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'index'])->name('admin.maintenance.schedule.index');
+Route::get('maintenance/{maintenanceId}/schedule', [\App\Http\Controllers\MaintenanceScheduleController::class, 'index'])->name('admin.maintenance.schedule.index');
 // Route::resource('maintenance_schedules', \App\Http\Controllers\MaintenanceScheduleController::class)->names('admin.maintenance.schedules');
-Route::get('maintenance-shedules/{maintenanceId}/create', [\App\Http\Controllers\MaintenanceScheduleController::class, 'create'])->name('admin.maintenance.schedule.create');
-Route::post('maintenance-shedules/{maintenanceId}/store', [\App\Http\Controllers\MaintenanceScheduleController::class, 'store'])->name('admin.maintenance.schedule.store');
-Route::get('maintenance-shedules/{maintenanceId}/edit/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'edit'])->name('admin.maintenance.schedule.edit');
-Route::put('maintenance-shedules/{maintenanceId}/update/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'update'])->name('admin.maintenance.schedule.update');
-Route::delete('maintenance-shedules/{maintenanceId}/destroy/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'destroy'])->name('admin.maintenance.schedule.destroy');
+Route::get('maintenance/{maintenanceId}/schedule/create', [\App\Http\Controllers\MaintenanceScheduleController::class, 'create'])->name('admin.maintenance.schedule.create');
+Route::post('maintenance/{maintenanceId}/schedule/store', [\App\Http\Controllers\MaintenanceScheduleController::class, 'store'])->name('admin.maintenance.schedule.store');
+Route::get('maintenance/{maintenanceId}/schedule/edit/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'edit'])->name('admin.maintenance.schedule.edit');
+Route::put('maintenance/{maintenanceId}/schedule/update/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'update'])->name('admin.maintenance.schedule.update');
+Route::delete('maintenance/{maintenanceId}/schedule/destroy/{id}', [\App\Http\Controllers\MaintenanceScheduleController::class, 'destroy'])->name('admin.maintenance.schedule.destroy');
 
 
 
-Route::resource('maintenance_activities', \App\Http\Controllers\MaintenanceActivityController::class)->names('admin.maintenance.activities');
+// Route::resource('maintenance_activities', \App\Http\Controllers\MaintenanceActivityController::class)->names('admin.maintenance.activities');
+Route::get('maintenance-shedules/{maintenanceScheduleId}/activities', [\App\Http\Controllers\MaintenanceActivityController::class, 'index'])->name('admin.maintenance.activities.index');
+Route::get('maintenance-shedules/{maintenanceScheduleId}/activities/create', [\App\Http\Controllers\MaintenanceActivityController::class, 'create'])->name('admin.maintenance.activities.create');
+Route::post('maintenance-shedules/{maintenanceScheduleId}/activities/store', [\App\Http\Controllers\MaintenanceActivityController::class, 'store'])->name('admin.maintenance.activities.store');
+Route::get('maintenance-shedules/{maintenanceScheduleId}/activities/edit/{id}', [\App\Http\Controllers\MaintenanceActivityController::class, 'edit'])->name('admin.maintenance.activities.edit');
+Route::put('maintenance-shedules/{maintenanceScheduleId}/activities/update/{id}', [\App\Http\Controllers\MaintenanceActivityController::class, 'update'])->name('admin.maintenance.activities.update');
+Route::delete('maintenance-shedules/{maintenanceScheduleId}/activities/destroy/{id}', [\App\Http\Controllers\MaintenanceActivityController::class, 'destroy'])->name('admin.maintenance.activities.destroy');
+
 

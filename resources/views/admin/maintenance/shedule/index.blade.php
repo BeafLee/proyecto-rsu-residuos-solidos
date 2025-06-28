@@ -19,6 +19,7 @@
                     <th>Hora Fin</th>
                     <th>Empleado</th>
                     <th>Vehículo</th>
+                    <th>Actividades</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -66,6 +67,16 @@ $(function() {
             { data: 'end_time' },
             { data: 'employee.names', defaultContent: '' },
             { data: 'vehicle.name', defaultContent: '' },
+            {
+                data: 'id',
+                orderable: false,
+                searchable: false,
+                render: function(data) {
+                    var url = "{{ route('admin.maintenance.activities.index', ['maintenanceScheduleId' => 'SCHEDULE_ID']) }}";
+                    url = url.replace('SCHEDULE_ID', data);
+                    return `<a href='${url}' class='btn btn-primary btn-sm' title='Ver Actividades'><i class='fas fa-tasks'></i></a>`;
+                }
+            },
             {
                 data: 'id',
                 orderable: false,
